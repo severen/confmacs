@@ -1,0 +1,64 @@
+#!/usr/bin/env ruby
+# Confmacs - Switch between Emacs configurations with ease.
+# Copyright (C) 2015 Severen Redwood <severen.redwood@gmail.com>
+#
+# You should have received a copy of the GNU General Public License
+# along with this program. If not, see <http://www.gnu.org/licenses/>.
+
+# The gems 'thor', 'colorize' and 'highline' are required to run this script.
+# You can install the dependencies via this command:
+# `gem install thor colorize highline`
+
+require 'thor'
+require 'colorize'
+require 'highline/import'
+require 'fileutils'
+
+HOME = Dir.home
+CONFIG_DIR = "#{HOME}/.confmacs"
+EMACS_CONFIG_DIR = proc do
+  if !File.exist?(CONFIG_DIR)
+    FileUtils.mkdir(CONFIG_DIR)
+    FileUtils.mkdir("#{CONFIG_DIR}/configs")
+  elsif !File.exist?("#{CONFIG_DIR}/configs")
+    FileUtils.mkdir("#{CONFIG_DIR}/configs")
+  end
+  return("#{CONFIG_DIR}/configs")
+end
+
+def config_scan
+  configs = Dir.entries("#{CONFIG_DIR}/configs")
+  configs -= %w(. ..)
+  configs.map(&:to_sym)
+end
+
+class CLI < Thor
+  map %w(version -V --version) => :__print_version
+
+  desc 'list', 'List the Emacs configs stored under ~/.confmacs/configs/'
+  def list
+    puts '==> Available Emacs configurations:'.colorize(:green)
+    puts config_scan
+  end
+
+  desc 'select CONFIG', 'Select the active Emacs config'
+  def select(config)
+    # TODO: Check if the config folder exists.
+    puts '~/.emacs.d will be deleted and replaced with a symlink.'
+      .colorize(:red).blink
+    exit unless HighLine.agree('Do you want to proceed? (Y/N)')
+    FileUtils.remove("#{HOME}/.emacs.d")
+    FileUtils.symlink("#{HOME}/.confmacs/configs/#{config}", "#{HOME}/.emacs.d")
+  end
+
+  desc 'version', 'Print version info and exit'
+  def __print_version
+    puts "Confmacs 0.1.0\n".colorize(:blue)
+    puts 'Copyright (C) 2015 Severen Redwood <severen.redwood@gmail.com>'
+      .colorize(:red)
+    puts 'This is free software; see the source for copying conditions.'
+      .colorize(:red)
+  end
+end
+
+CLI.start(ARGV)
