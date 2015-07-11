@@ -15,10 +15,10 @@ into the `/usr/local/bin` directory.
   setup and I'll look into the problem and attempt to resolve it.*
 
 ## Usage
-Each separate Emacs configuration are stored under `~/.confmacs/configs` in
-their respective subdirectories.
+Each separate Emacs configuration is stored under `~/.confmacs/configs` in
+its respective subdirectory.
 
-An example Confmacs directory tree for with three different configurations:
+An example Confmacs directory tree with three different configurations:
 ```
 ~/.confmacs
 └── configs
