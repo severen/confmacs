@@ -49,6 +49,13 @@ class CLI < Thor
   end
 
   desc 'select CONFIG', 'Select the active Emacs config'
+  long_desc <<-LONGDESC
+    `confmacs select` will change the ~/.emacs.d symlink to point towards the
+    selected configuration.
+
+    You can view a list of the available configurations (stored in
+    ~/.confmacs/configs/) with the `confmacs list` command.
+  LONGDESC
   def select(config)
     # TODO: Check if the config folder exists.
     puts '~/.emacs.d will be deleted and replaced with a symlink.'
