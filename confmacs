@@ -16,17 +16,19 @@ require 'fileutils'
 
 HOME = Dir.home
 CONFIG_DIR = "#{HOME}/.confmacs"
-EMACS_CONFIG_DIR = proc do
+EMACS_CONFIG_DIR = "#{CONFIG_DIR}/configs"
+
+def config_dir_check
   if !File.exist?(CONFIG_DIR)
     FileUtils.mkdir(CONFIG_DIR)
     FileUtils.mkdir("#{CONFIG_DIR}/configs")
   elsif !File.exist?("#{CONFIG_DIR}/configs")
     FileUtils.mkdir("#{CONFIG_DIR}/configs")
   end
-  return("#{CONFIG_DIR}/configs")
 end
 
 def config_scan
+  config_dir_check
   configs = Dir.entries("#{CONFIG_DIR}/configs")
   configs -= %w(. ..)
   configs.map(&:to_sym)
@@ -48,7 +50,7 @@ class CLI < Thor
     puts config_scan
   end
 
-  desc 'select CONFIG', 'Select the active Emacs config'
+  desc 'select <config>', 'Select the active Emacs config'
   long_desc <<-LONGDESC
     `confmacs select` will change the ~/.emacs.d symlink to point towards the
     selected configuration.
@@ -57,12 +59,18 @@ class CLI < Thor
     ~/.confmacs/configs/) with the `confmacs list` command.
   LONGDESC
   def select(config)
-    # TODO: Check if the config folder exists.
+    config_dir_check
+    config_path = "#{EMACS_CONFIG_DIR}/#{config}"
+    unless File.exist?("#{config_path}")
+      Kernel.abort("The configuration '#{config}' does not exist!"
+      .colorize(:red))
+    end
+
     puts '~/.emacs.d will be deleted and replaced with a symlink.'
       .colorize(:red).blink
     exit unless HighLine.agree('Do you want to proceed? (Y/N)')
     FileUtils.remove("#{HOME}/.emacs.d")
-    FileUtils.symlink("#{HOME}/.confmacs/configs/#{config}", "#{HOME}/.emacs.d")
+    FileUtils.symlink("#{config_path}", "#{HOME}/.emacs.d")
   end
 
   desc 'version', 'Print version info and exit'
