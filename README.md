@@ -1,6 +1,8 @@
 # Confmacs
 Manage multiple Emacs configurations with ease.
 
+[![asciicast](https://asciinema.org/a/23286.png)](https://asciinema.org/a/23286)
+
 Confmacs is currently a simple Ruby script, however I have plans to possibly
 turn it into a RubyGem.
 
