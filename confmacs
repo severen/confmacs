@@ -37,6 +37,15 @@ end
 class CLI < Thor
   map %w(version -V --version) => :__print_version
 
+  desc 'init', 'Create the  ~/.confmacs directory'
+  long_desc <<-LONGDESC
+    `confmacs init` will create a new ~/.confmacs directory if it does not
+    exist.
+  LONGDESC
+  def init
+    config_dir_check
+  end
+
   desc 'list', 'List the Emacs configs stored under ~/.confmacs/configs/'
   long_desc <<-LONGDESC
     `confmacs list` will print a list of all the available Emacs configurations
