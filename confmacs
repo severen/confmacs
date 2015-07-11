@@ -11,8 +11,8 @@
 
 require 'thor'
 require 'colorize'
-require 'highline/import'
 require 'fileutils'
+require 'highline/import'
 
 HOME = Dir.home
 CONFIG_DIR = "#{HOME}/.confmacs"
@@ -78,7 +78,7 @@ class CLI < Thor
     puts '~/.emacs.d will be deleted and replaced with a symlink.'
       .colorize(:red).blink
     exit unless HighLine.agree('Do you want to proceed? (Y/N)')
-    FileUtils.remove("#{HOME}/.emacs.d")
+    FileUtils.remove_dir("#{HOME}/.emacs.d") if File.exist?("#{HOME}/.emacs.d")
     FileUtils.symlink("#{config_path}", "#{HOME}/.emacs.d")
   end
 
