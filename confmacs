@@ -36,6 +36,13 @@ class CLI < Thor
   map %w(version -V --version) => :__print_version
 
   desc 'list', 'List the Emacs configs stored under ~/.confmacs/configs/'
+  long_desc <<-LONGDESC
+    `confmacs list` will print a list of all the available Emacs configurations
+    that are stored under the ~/.confmacs/configs/ directory.
+
+    These different configurations can be selected with the `confmacs select`
+    command.
+  LONGDESC
   def list
     puts '==> Available Emacs configurations:'.colorize(:green)
     puts config_scan
@@ -54,6 +61,7 @@ class CLI < Thor
   desc 'version', 'Print version info and exit'
   def __print_version
     puts "Confmacs 0.1.0\n".colorize(:blue)
+
     puts 'Copyright (C) 2015 Severen Redwood <severen.redwood@gmail.com>'
       .colorize(:red)
     puts 'This is free software; see the source for copying conditions.'
