@@ -4,10 +4,14 @@ Manage multiple Emacs configurations with ease.
 [![asciicast](https://asciinema.org/a/23286.png)](https://asciinema.org/a/23286)
 
 ## Installation
-Install via RubyGems with the command `gem install confmacs` _**or**_ download
-the latest version of Confmacs from the
-[GitHub releases page](https://github.com/SShrike/confmacs/releases) and install
-with the command `gem install confmacs-x.y.z.gem`.
+If you are on Arch Linux there is a
+[PKGBUILD available on the AUR](https://aur4.archlinux.org/packages/confmacs/),
+which you can download and install using your favourite Pacman frontend.
+
+For everyone else Confmacs can be installed with RubyGems
+(`gem install confmacs`) _**or**_ the latest version of Confmacs from the
+[GitHub releases page](https://github.com/SShrike/confmacs/releases) can be
+downloaded. (Install the `.gem` with `gem install confmacs-x.y.z.gem`).
 
 **NOTE:** *Confmacs has currently only been tested on Linux (Arch Linux, to be
   exact) and as such I can not guarantee that it will work on your local setup.
