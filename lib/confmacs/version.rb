@@ -5,5 +5,5 @@
 # along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 module Confmacs
-  VERSION = '0.1.0' # Follows semantic versioning
+  VERSION = '0.2.0' # Follows semantic versioning
 end
