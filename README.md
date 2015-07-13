@@ -1,4 +1,4 @@
-# Confmacs | [![Gem Version](https://badge.fury.io/rb/confmacs.svg)](http://badge.fury.io/rb/confmacs) [![Code Climate](https://codeclimate.com/github/SShrike/confmacs/badges/gpa.svg)](https://codeclimate.com/github/SShrike/confmacs)
+# Confmacs | [![Gem Downloads](https://img.shields.io/gem/dv/confmacs/0.2.0.svg)](https://rubygems.org/gems/confmacs) [![Code Climate Score](https://img.shields.io/codeclimate/github/SShrike/confmacs.svg)](https://codeclimate.com/github/SShrike/confmacs) [![Gratipay](https://img.shields.io/gratipay/SShrike.svg)](https://gratipay.com/~SShrike/)
 Manage multiple Emacs configurations with ease.
 
 [![asciicast](https://asciinema.org/a/23286.png)](https://asciinema.org/a/23286)
