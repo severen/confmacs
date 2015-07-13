@@ -1,4 +1,4 @@
-# Confmacs
+# Confmacs | [![Gem Version](https://badge.fury.io/rb/bundler.svg)](http://badge.fury.io/rb/bundler)
 Manage multiple Emacs configurations with ease.
 
 [![asciicast](https://asciinema.org/a/23286.png)](https://asciinema.org/a/23286)
