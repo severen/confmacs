@@ -1,38 +1,16 @@
 #!/usr/bin/env ruby
 # Confmacs - Switch between Emacs configurations with ease.
-# Copyright (C) 2015 Severen Redwood <severen.redwood@gmail.com>
+# Copyright (c) 2015 Severen Redwood <severen.redwood@gmail.com>
 #
 # You should have received a copy of the GNU General Public License
 # along with this program. If not, see <http://www.gnu.org/licenses/>.
 
-# The gems 'thor', 'colorize' and 'highline' are required to run this script.
-# You can install the dependencies via this command:
-# `gem install thor colorize highline`
+require 'confmacs'
 
 require 'thor'
 require 'colorize'
 require 'fileutils'
 require 'highline/import'
-
-HOME = Dir.home
-CONFIG_DIR = "#{HOME}/.confmacs"
-EMACS_CONFIG_DIR = "#{CONFIG_DIR}/configs"
-
-def config_dir_check
-  if !File.exist?(CONFIG_DIR)
-    FileUtils.mkdir(CONFIG_DIR)
-    FileUtils.mkdir("#{CONFIG_DIR}/configs")
-  elsif !File.exist?("#{CONFIG_DIR}/configs")
-    FileUtils.mkdir("#{CONFIG_DIR}/configs")
-  end
-end
-
-def config_scan
-  config_dir_check
-  configs = Dir.entries("#{CONFIG_DIR}/configs")
-  configs -= %w(. ..)
-  configs.map(&:to_sym)
-end
 
 class CLI < Thor
   map %w(version -V --version) => :__print_version
@@ -43,7 +21,7 @@ class CLI < Thor
     exist.
   LONGDESC
   def init
-    config_dir_check
+    Confmacs.config_dir_check
   end
 
   desc 'list', 'List the Emacs configs stored under ~/.confmacs/configs/'
@@ -56,7 +34,7 @@ class CLI < Thor
   LONGDESC
   def list
     puts '==> Available Emacs configurations:'.colorize(:green)
-    puts config_scan
+    puts Confmacs.config_scan
   end
 
   desc 'select <config>', 'Select the active Emacs config'
@@ -68,25 +46,27 @@ class CLI < Thor
     ~/.confmacs/configs/) with the `confmacs list` command.
   LONGDESC
   def select(config)
-    config_dir_check
-    config_path = "#{EMACS_CONFIG_DIR}/#{config}"
+    Confmacs.config_dir_check
+    config_path = "#{Confmacs::EMACS_CONFIG_DIR}/#{config}"
     unless File.exist?("#{config_path}")
       Kernel.abort("The configuration '#{config}' does not exist!"
-      .colorize(:red))
+        .colorize(:red))
     end
 
     puts '~/.emacs.d will be deleted and replaced with a symlink.'
       .colorize(:red).blink
     exit unless HighLine.agree('Do you want to proceed? (Y/N)')
-    FileUtils.remove_dir("#{HOME}/.emacs.d") if File.exist?("#{HOME}/.emacs.d")
-    FileUtils.symlink("#{config_path}", "#{HOME}/.emacs.d")
+    if File.exist?("#{Dir.home}/.emacs.d")
+      FileUtils.remove_dir("#{Dir.home}/.emacs.d")
+    end
+    FileUtils.symlink("#{config_path}", "#{Dir.home}/.emacs.d")
   end
 
   desc 'version', 'Print version info and exit'
   def __print_version
-    puts "Confmacs 0.1.0\n".colorize(:blue)
+    puts "Confmacs #{Confmacs::VERSION}\n".colorize(:blue)
 
-    puts 'Copyright (C) 2015 Severen Redwood <severen.redwood@gmail.com>'
+    puts 'Copyright (c) 2015 Severen Redwood <severen.redwood@gmail.com>'
       .colorize(:red)
     puts 'This is free software; see the source for copying conditions.'
       .colorize(:red)

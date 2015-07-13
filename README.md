@@ -3,13 +3,11 @@ Manage multiple Emacs configurations with ease.
 
 [![asciicast](https://asciinema.org/a/23286.png)](https://asciinema.org/a/23286)
 
-Confmacs is currently a simple Ruby script, however I have plans to possibly
-turn it into a RubyGem.
-
 ## Installation
-Download the latest version of Confmacs from the
-[GitHub releases page](https://github.com/SShrike/confmacs/releases) and drop it
-into the `/usr/local/bin` directory.
+Install via RubyGems with the command `gem install confmacs` _**or**_ download
+the latest version of Confmacs from the
+[GitHub releases page](https://github.com/SShrike/confmacs/releases) and install
+with the command `gem install confmacs-x.y.z.gem`.
 
 **NOTE:** *Confmacs has currently only been tested on Linux (Arch Linux, to be
   exact) and as such I can not guarantee that it will work on your local setup.
