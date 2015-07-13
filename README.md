@@ -1,4 +1,4 @@
-# Confmacs | [![Gem Version](https://badge.fury.io/rb/bundler.svg)](http://badge.fury.io/rb/bundler) [![Code Climate](https://codeclimate.com/github/SShrike/confmacs/badges/gpa.svg)](https://codeclimate.com/github/SShrike/confmacs)
+# Confmacs | [![Gem Version](https://badge.fury.io/rb/confmacs.svg)](http://badge.fury.io/rb/confmacs) [![Code Climate](https://codeclimate.com/github/SShrike/confmacs/badges/gpa.svg)](https://codeclimate.com/github/SShrike/confmacs)
 Manage multiple Emacs configurations with ease.
 
 [![asciicast](https://asciinema.org/a/23286.png)](https://asciinema.org/a/23286)
