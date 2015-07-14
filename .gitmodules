@@ -1,6 +1,6 @@
-[submodule "contrib/confmacs-aur-package"]
-	path = contrib/confmacs-aur-package
+[submodule "contrib/aur-packages/confmacs"]
+	path = contrib/aur-packages/confmacs
 	url = ssh://aur@aur4.archlinux.org/confmacs.git
-[submodule "contrib/confmacs-git-aur-package"]
-	path = contrib/confmacs-git-aur-package
+[submodule "contrib/aur-packages/confmacs-git"]
+	path = contrib/aur-packages/confmacs-git
 	url = ssh://aur@aur4.archlinux.org/confmacs-git.git
