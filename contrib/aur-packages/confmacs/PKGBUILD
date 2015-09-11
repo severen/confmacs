@@ -1,0 +1,24 @@
+# Maintainer: Severen Redwood <severen.redwood@gmail.com>
+# Report all package issues to `https://github.com/SShrike/arch-packages`
+
+pkgname='confmacs'
+pkgver='0.2.0'
+pkgrel=1
+pkgdesc='An Emacs configuration switcher'
+arch=('any')
+license=('GPL3')
+depends=('rubygems' 'ruby-thor' 'ruby-colorize' 'ruby-highline')
+conflicts=('confmacs-git')
+options=(!emptydirs)
+url="http://rubygems.org/gems/${pkgname}"
+source=("https://rubygems.org/downloads/${pkgname}-${pkgver}.gem")
+md5sums=('a7574ba12d9e342feda23cfeb9187ce5')
+noextract=("${pkgname}-${pkgver}.gem")
+
+package() {
+  cd "${srcdir}"
+  local _gemdir=$(ruby -e 'puts Gem.default_dir')
+  gem install --ignore-dependencies --no-user-install -i "${pkgdir}${_gemdir}" \
+    -n "${pkgdir}/usr/bin" "${pkgname}-${pkgver}.gem"
+  rm "${pkgdir}/${_gemdir}/cache/${_gemname}-${pkgver}.gem"
+}
