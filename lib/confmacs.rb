@@ -12,19 +12,21 @@ module Confmacs
   CONFIG_DIR = "#{Dir.home}/.confmacs"
   EMACS_CONFIG_DIR = "#{CONFIG_DIR}/configs"
 
-  def self.config_dir_check
-    if !File.exist?(CONFIG_DIR)
-      FileUtils.mkdir(CONFIG_DIR)
-      FileUtils.mkdir("#{CONFIG_DIR}/configs")
-    elsif !File.exist?("#{CONFIG_DIR}/configs")
-      FileUtils.mkdir("#{CONFIG_DIR}/configs")
+  class << self
+    def config_dir_check
+      if !File.exist?(CONFIG_DIR)
+        FileUtils.mkdir(CONFIG_DIR)
+        FileUtils.mkdir("#{CONFIG_DIR}/configs")
+      elsif !File.exist?("#{CONFIG_DIR}/configs")
+        FileUtils.mkdir("#{CONFIG_DIR}/configs")
+      end
     end
-  end
 
-  def self.config_scan
-    config_dir_check
-    configs = Dir.entries("#{CONFIG_DIR}/configs")
-    configs -= %w(. ..)
-    configs.map(&:to_sym)
+    def config_scan
+      config_dir_check
+      configs = Dir.entries("#{CONFIG_DIR}/configs")
+      configs -= %w(. ..)
+      configs.map(&:to_sym)
+    end
   end
 end
