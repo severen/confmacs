@@ -1,0 +1,36 @@
+= confmacs(1)
+:doctype: manpage
+:man manual: Confmacs Manual
+:man source: Confmacs 0.2.0
+:page-layout: base
+
+== NAME
+
+confmacs - an Emacs configuration manager
+
+== SYNOPSIS
+
+*confmacs* [--version] [--verbose] <command> [<args>]
+
+== OPTIONS
+*-v, --version*::
+  Output version information and exit.
+
+== BUGS
+
+link:https://github.com/SShrike/confmacs/issues[See the *Confmacs* issue tracker:]
+
+== AUTHORS
+
+*Confmacs* was written by Severen Redwood.
+
+link:https://github.com/SShrike/confmacs/contributors[For a complete list of all contributors see:]
+
+== COPYING
+
+Copyright \(C) 2015-2016 Severen Redwood. Use of this software is governed
+under the terms of the GPL 3.0 License.
+
+== SEE ALSO
+
+emacs(1), link:https://github.com/SShrike/confmacs[*Confmacs* on GitHub:]
