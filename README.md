@@ -1,9 +1,8 @@
 # Confmacs
-
-[![Join the chat at https://gitter.im/SShrike/confmacs](https://badges.gitter.im/SShrike/confmacs.svg)](https://gitter.im/SShrike/confmacs?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 [![Travis](https://img.shields.io/travis/SShrike/confmacs.svg)](https://travis-ci.org/SShrike/confmacs)
 [![Code Climate Score](https://img.shields.io/codeclimate/github/SShrike/confmacs.svg)](https://codeclimate.com/github/SShrike/confmacs)
 [![Gem Downloads](https://img.shields.io/gem/dv/confmacs/0.2.0.svg)](https://rubygems.org/gems/confmacs)
+[![Gitter](https://img.shields.io/gitter/room/SShrike/confmacs.svg)](https://gitter.im/SShrike/confmacs)
 [![Gratipay](https://img.shields.io/gratipay/SShrike.svg)](https://gratipay.com/~SShrike/)
 
 Manage multiple Emacs configurations with ease.
