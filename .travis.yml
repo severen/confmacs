@@ -6,6 +6,14 @@ rvm:
 dist: trusty
 sudo: required
 
+notifications:
+  webhooks:
+    urls:
+      - https://webhooks.gitter.im/e/4d0b6810b27cca9a0e15
+    on_success: change
+    on_failure: always
+    on_start: never
+
 before_install:
   - gem update --system
   - gem --version
