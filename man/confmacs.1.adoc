@@ -33,4 +33,4 @@ under the terms of the GPL 3.0 License.
 
 == SEE ALSO
 
-emacs(1), link:https://github.com/SShrike/confmacs[*Confmacs* on GitHub:]
+emacs(1), link:https://shrike.me/confmacs[*Confmacs* website:]
