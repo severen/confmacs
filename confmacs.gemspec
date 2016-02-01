@@ -5,7 +5,7 @@ require 'confmacs/version'
 Gem::Specification.new do |spec|
   spec.name          = 'confmacs'
   spec.version       = Confmacs::VERSION
-  spec.license      = ['GPL-3.0']
+  spec.licenses      = ['GPL-3.0']
   spec.authors       = ['Severen Redwood']
   spec.email         = ['severen.redwood@gmail.com']
 
