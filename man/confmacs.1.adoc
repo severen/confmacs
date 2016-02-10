@@ -10,11 +10,23 @@ confmacs - an Emacs configuration manager
 
 == SYNOPSIS
 
-*confmacs* [--version] [--verbose] <command> [<args>]
+*confmacs* [--version] <command> [<args>]
 
 == OPTIONS
-*-v, --version*::
+
+*-V, --version*::
   Output version information and exit.
+
+== COMMANDS
+
+*init*::
+  Create the  ~/.confmacs directory.
+
+*list*::
+  List the Emacs configs stored under ~/.confmacs/configs.
+
+*select*::
+  Select the active Emacs config.
 
 == BUGS
 
@@ -33,4 +45,4 @@ under the terms of the GPL 3.0 License.
 
 == SEE ALSO
 
-emacs(1), link:https://shrike.me/confmacs[*Confmacs* website:]
+*emacs*(1), link:https://shrike.me/confmacs[*Confmacs* website:]
