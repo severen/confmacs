@@ -3,9 +3,16 @@
 [![Gem Downloads](https://img.shields.io/gem/dv/confmacs/0.2.0.svg)](https://rubygems.org/gems/confmacs)
 [![Gitter](https://img.shields.io/gitter/room/SShrike/confmacs.svg)](https://gitter.im/SShrike/confmacs)
 
+**NOTE**: This project is in maintenance mode as I have no use for this anymore. However I will still look
+          into fixing bugs and the like if any are found.
+
 Manage multiple Emacs configurations with ease.
 
 [![asciicast](https://asciinema.org/a/23286.png)](https://asciinema.org/a/23286)
+
+<a target='_blank' rel='nofollow' href='https://app.codesponsor.io/link/byV416KewAU8F6vFA7h132x2/SShrike/confmacs'>
+  <img alt='Sponsor' width='888' height='68' src='https://app.codesponsor.io/embed/byV416KewAU8F6vFA7h132x2/SShrike/confmacs.svg' />
+</a>
 
 ## Installation
 If you are on Arch Linux there is a
